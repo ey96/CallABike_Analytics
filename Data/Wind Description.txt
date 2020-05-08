@@ -1,0 +1,6 @@
+STATIONS_ID Stationsidentifikationsnummer
+MESS_DATUM_ENDE Intervallende yyyymmddhh 
+QN_3 Qualitätsniveau der nachfolgenden Spalten code siehe Absatz "Qualitätsinformation"
+F mittlere Windgeschwindigkeit in m/s
+D mittlere Windrichtung in Grad
+eor Ende data record

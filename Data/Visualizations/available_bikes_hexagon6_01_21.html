@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c94c251777d04aecbab1414e94b85b2a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>    
+    
+             <h3 align="center" style="font-size:20px"><b>Average amount of available bikes on the 21st of January</b></h3>
+             
+    
+            <div class="folium-map" id="map_c94c251777d04aecbab1414e94b85b2a" ></div>
+        
+</body>
+<script>    
+    
+            var map_c94c251777d04aecbab1414e94b85b2a = L.map(
+                "map_c94c251777d04aecbab1414e94b85b2a",
+                {
+                    center: [50.7323, 7.1847],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3e4a6154acd64e5489e469582c9b5e98 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 16, "maxZoom": 16, "minZoom": 10.5, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c94c251777d04aecbab1414e94b85b2a);
+        
+    
+            var choropleth_54fee7266eca4b01a72298a8fc971c41 = L.featureGroup(
+                {}
+            ).addTo(map_c94c251777d04aecbab1414e94b85b2a);
+        
+    
+        function geo_json_d0ef0567634a41239f869f321b7cc5b1_styler(feature) {
+            switch(feature.properties.h3_hex_id) {
+                case "861fa1117ffffff": 
+                    return {"color": "black", "fillColor": "#99000d", "fillOpacity": 0.7, "opacity": 0.5, "weight": 1};
+                case "861fa11afffffff": 
+                    return {"color": "black", "fillColor": "#fcbba1", "fillOpacity": 0.7, "opacity": 0.5, "weight": 1};
+                default:
+                    return {"color": "black", "fillColor": "#fee5d9", "fillOpacity": 0.7, "opacity": 0.5, "weight": 1};
+            }
+        }
+        function geo_json_d0ef0567634a41239f869f321b7cc5b1_onEachFeature(feature, layer) {
+            layer.on({
+                click: function(e) {
+                    map_c94c251777d04aecbab1414e94b85b2a.fitBounds(e.target.getBounds());
+                }
+            });
+        };
+        var geo_json_d0ef0567634a41239f869f321b7cc5b1 = L.geoJson(null, {
+                onEachFeature: geo_json_d0ef0567634a41239f869f321b7cc5b1_onEachFeature,
+            
+                style: geo_json_d0ef0567634a41239f869f321b7cc5b1_styler,
+        }).addTo(choropleth_54fee7266eca4b01a72298a8fc971c41);
+
+        function geo_json_d0ef0567634a41239f869f321b7cc5b1_add (data) {
+            geo_json_d0ef0567634a41239f869f321b7cc5b1.addData(data);
+        }
+            geo_json_d0ef0567634a41239f869f321b7cc5b1_add({"crs": {"properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}, "type": "name"}, "features": [{"geometry": {"coordinates": [[[7.080360919502379, 50.7505242168779], [7.068427929161177, 50.719799078575925], [7.105328984717779, 50.700652370734254], [7.154182057129541, 50.712223988967786], [7.166157846773933, 50.742951110073506], [7.12923777588655, 50.76210463805401], [7.080360919502379, 50.7505242168779]]], "type": "Polygon"}, "properties": {"h3_hex_id": "861fa1117ffffff"}, "type": "Feature"}, {"geometry": {"coordinates": [[[7.019608707704014, 50.70819470710995], [7.007714229672656, 50.677452458906224], [7.044596200977486, 50.65831254407347], [7.093391745612866, 50.66990809233633], [7.105328984717779, 50.700652370734254], [7.068427929161177, 50.719799078575925], [7.019608707704014, 50.70819470710995]]], "type": "Polygon"}, "properties": {"h3_hex_id": "861fa11a7ffffff"}, "type": "Feature"}, {"geometry": {"coordinates": [[[7.105328984717779, 50.700652370734254], [7.093391745612866, 50.66990809233633], [7.130264835782043, 50.650733440334186], [7.179094126395174, 50.662296253440665], [7.191074097431419, 50.69304251577718], [7.154182057129541, 50.712223988967786], [7.105328984717779, 50.700652370734254]]], "type": "Polygon"}, "properties": {"h3_hex_id": "861fa11afffffff"}, "type": "Feature"}], "type": "FeatureCollection"});
+        
+    
+    var color_map_37d7dbbeffa84506a7b8c5c5a9015197 = {};
+
+    
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.color = d3.scale.threshold()
+              .domain([0.0, 0.4418002672010688, 0.8836005344021376, 1.3254008016032064, 1.7672010688042752, 2.209001336005344, 2.650801603206413, 3.092601870407482, 3.5344021376085504, 3.9762024048096194, 4.418002672010688, 4.859802939211757, 5.301603206412826, 5.743403473613895, 6.185203740814964, 6.627004008016032, 7.068804275217101, 7.510604542418171, 7.952404809619239, 8.394205076820308, 8.836005344021377, 9.277805611222444, 9.719605878423515, 10.161406145624584, 10.603206412825651, 11.045006680026722, 11.48680694722779, 11.928607214428858, 12.370407481629927, 12.812207748830996, 13.254008016032063, 13.695808283233134, 14.137608550434202, 14.57940881763527, 15.021209084836341, 15.463009352037409, 15.904809619238478, 16.34660988643955, 16.788410153640616, 17.230210420841683, 17.672010688042754, 18.113810955243824, 18.555611222444888, 18.99741148964596, 19.43921175684703, 19.881012024048097, 20.322812291249168, 20.764612558450235, 21.206412825651302, 21.648213092852373, 22.090013360053444, 22.531813627254508, 22.97361389445558, 23.41541416165665, 23.857214428857716, 24.299014696058787, 24.740814963259854, 25.18261523046092, 25.624415497661992, 26.066215764863063, 26.508016032064127, 26.949816299265198, 27.39161656646627, 27.833416833667336, 28.275217100868403, 28.717017368069474, 29.15881763527054, 29.600617902471612, 30.042418169672683, 30.484218436873746, 30.926018704074817, 31.367818971275888, 31.809619238476955, 32.25141950567802, 32.6932197728791, 33.13502004008016, 33.57682030728123, 34.0186205744823, 34.460420841683366, 34.90222110888444, 35.34402137608551, 35.785821643286575, 36.22762191048765, 36.669422177688716, 37.111222444889776, 37.55302271209085, 37.99482297929192, 38.436623246492985, 38.87842351369406, 39.32022378089513, 39.762024048096194, 40.20382431529727, 40.645624582498336, 41.087424849699396, 41.52922511690047, 41.97102538410154, 42.412825651302605, 42.85462591850368, 43.296426185704746, 43.73822645290581, 44.18002672010689, 44.621826987307955, 45.063627254509015, 45.50542752171009, 45.94722778891116, 46.389028056112224, 46.8308283233133, 47.272628590514365, 47.71442885771543, 48.15622912491651, 48.598029392117574, 49.039829659318634, 49.48162992651971, 49.923430193720776, 50.36523046092184, 50.80703072812292, 51.248830995323985, 51.69063126252505, 52.13243152972613, 52.57423179692719, 53.016032064128254, 53.45783233132933, 53.899632598530395, 54.34143286573146, 54.78323313293254, 55.225033400133604, 55.66683366733467, 56.108633934535746, 56.550434201736806, 56.99223446893787, 57.43403473613895, 57.875835003340015, 58.31763527054108, 58.759435537742156, 59.201235804943224, 59.64303607214429, 60.084836339345365, 60.526636606546425, 60.96843687374749, 61.41023714094857, 61.852037408149634, 62.2938376753507, 62.735637942551776, 63.17743820975284, 63.61923847695391, 64.06103874415498, 64.50283901135604, 64.94463927855712, 65.3864395457582, 65.82823981295927, 66.27004008016031, 66.71184034736139, 67.15364061456246, 67.59544088176352, 68.0372411489646, 68.47904141616567, 68.92084168336673, 69.3626419505678, 69.80444221776888, 70.24624248496994, 70.68804275217101, 71.12984301937209, 71.57164328657315, 72.01344355377422, 72.4552438209753, 72.89704408817636, 73.33884435537743, 73.7806446225785, 74.22244488977955, 74.66424515698063, 75.1060454241817, 75.54784569138276, 75.98964595858384, 76.43144622578491, 76.87324649298597, 77.31504676018704, 77.75684702738812, 78.19864729458918, 78.64044756179025, 79.08224782899133, 79.52404809619239, 79.96584836339346, 80.40764863059454, 80.8494488977956, 81.29124916499667, 81.73304943219775, 82.17484969939879, 82.61664996659987, 83.05845023380094, 83.500250501002, 83.94205076820307, 84.38385103540415, 84.82565130260521, 85.26745156980628, 85.70925183700736, 86.15105210420842, 86.59285237140949, 87.03465263861057, 87.47645290581163, 87.9182531730127, 88.36005344021378, 88.80185370741484, 89.24365397461591, 89.68545424181697, 90.12725450901803, 90.5690547762191, 91.01085504342018, 91.45265531062124, 91.89445557782231, 92.33625584502339, 92.77805611222445, 93.21985637942552, 93.6616566466266, 94.10345691382766, 94.54525718102873, 94.9870574482298, 95.42885771543087, 95.87065798263194, 96.31245824983301, 96.75425851703407, 97.19605878423515, 97.63785905143621, 98.07965931863727, 98.52145958583834, 98.96325985303942, 99.40506012024048, 99.84686038744155, 100.28866065464263, 100.73046092184369, 101.17226118904476, 101.61406145624584, 102.0558617234469, 102.49766199064797, 102.93946225784904, 103.3812625250501, 103.82306279225118, 104.26486305945225, 104.70666332665331, 105.14846359385437, 105.59026386105545, 106.03206412825651, 106.47386439545758, 106.91566466265866, 107.35746492985972, 107.79926519706079, 108.24106546426187, 108.68286573146293, 109.124665998664, 109.56646626586507, 110.00826653306613, 110.45006680026721, 110.89186706746828, 111.33366733466934, 111.77546760187042, 112.21726786907149, 112.65906813627255, 113.10086840347361, 113.54266867067469, 113.98446893787575, 114.42626920507682, 114.8680694722779, 115.30986973947896, 115.75167000668003, 116.1934702738811, 116.63527054108216, 117.07707080828324, 117.51887107548431, 117.96067134268537, 118.40247160988645, 118.84427187708752, 119.28607214428858, 119.72787241148966, 120.16967267869073, 120.61147294589178, 121.05327321309285, 121.49507348029393, 121.93687374749499, 122.37867401469606, 122.82047428189713, 123.2622745490982, 123.70407481629927, 124.14587508350034, 124.5876753507014, 125.02947561790248, 125.47127588510355, 125.91307615230461, 126.35487641950569, 126.79667668670676, 127.23847695390782, 127.6802772211089, 128.12207748830997, 128.56387775551102, 129.0056780227121, 129.44747828991316, 129.88927855711424, 130.3310788243153, 130.7728790915164, 131.21467935871743, 131.65647962591854, 132.09827989311958, 132.54008016032063, 132.98188042752173, 133.42368069472278, 133.86548096192385, 134.30728122912492, 134.749081496326, 135.19088176352705, 135.63268203072815, 136.0744822979292, 136.51628256513027, 136.95808283233134, 137.39988309953242, 137.84168336673346, 138.28348363393457, 138.7252839011356, 139.1670841683367, 139.60888443553776, 140.05068470273883, 140.49248496993988, 140.93428523714095, 141.37608550434203, 141.81788577154308, 142.25968603874418, 142.70148630594522, 143.1432865731463, 143.58508684034737, 144.02688710754845, 144.4686873747495, 144.9104876419506, 145.35228790915164, 145.79408817635272, 146.2358884435538, 146.67768871075486, 147.1194889779559, 147.561289245157, 148.00308951235806, 148.4448897795591, 148.8866900467602, 149.32849031396125, 149.77029058116233, 150.2120908483634, 150.65389111556448, 151.09569138276552, 151.53749164996663, 151.97929191716767, 152.42109218436875, 152.86289245156982, 153.3046927187709, 153.74649298597194, 154.18829325317304, 154.6300935203741, 155.07189378757516, 155.51369405477624, 155.95549432197728, 156.39729458917836, 156.83909485637943, 157.2808951235805, 157.72269539078155, 158.16449565798266, 158.6062959251837, 159.04809619238478, 159.48989645958585, 159.93169672678692, 160.37349699398797, 160.81529726118907, 161.25709752839012, 161.6988977955912, 162.14069806279227, 162.58249832999334, 163.0242985971944, 163.4660988643955, 163.90789913159654, 164.34969939879758, 164.79149966599869, 165.23329993319973, 165.6751002004008, 166.11690046760188, 166.55870073480295, 167.000501002004, 167.4423012692051, 167.88410153640615, 168.32590180360722, 168.7677020708083, 169.20950233800937, 169.65130260521042, 170.09310287241152, 170.53490313961257, 170.97670340681364, 171.41850367401472, 171.86030394121576, 172.30210420841684, 172.7439044756179, 173.18570474281898, 173.62750501002003, 174.06930527722113, 174.51110554442218, 174.95290581162325, 175.39470607882433, 175.8365063460254, 176.27830661322645, 176.72010688042755, 177.1619071476286, 177.60370741482967, 178.04550768203075, 178.48730794923182, 178.92910821643287, 179.37090848363394, 179.81270875083501, 180.25450901803606, 180.69630928523716, 181.1381095524382, 181.57990981963928, 182.02171008684036, 182.46351035404143, 182.90531062124248, 183.34711088844358, 183.78891115564463, 184.2307114228457, 184.67251169004678, 185.11431195724785, 185.5561122244489, 185.99791249165, 186.43971275885104, 186.8815130260521, 187.3233132932532, 187.76511356045424, 188.2069138276553, 188.6487140948564, 189.09051436205746, 189.5323146292585, 189.9741148964596, 190.41591516366066, 190.85771543086173, 191.2995156980628, 191.74131596526388, 192.18311623246493, 192.62491649966603, 193.06671676686707, 193.50851703406815, 193.95031730126922, 194.3921175684703, 194.83391783567134, 195.27571810287242, 195.7175183700735, 196.15931863727454, 196.60111890447564, 197.0429191716767, 197.48471943887776, 197.92651970607884, 198.3683199732799, 198.81012024048096, 199.25192050768206, 199.6937207748831, 200.13552104208418, 200.57732130928525, 201.01912157648633, 201.46092184368737, 201.90272211088848, 202.34452237808952, 202.78632264529057, 203.22812291249167, 203.66992317969272, 204.1117234468938, 204.55352371409487, 204.99532398129594, 205.43712424849699, 205.8789245156981, 206.32072478289913, 206.7625250501002, 207.20432531730128, 207.64612558450236, 208.0879258517034, 208.5297261189045, 208.97152638610555, 209.41332665330663, 209.8551269205077, 210.29692718770875, 210.73872745490982, 211.1805277221109, 211.62232798931197, 212.06412825651302, 212.50592852371412, 212.94772879091516, 213.38952905811624, 213.8313293253173, 214.2731295925184, 214.71492985971943, 215.15673012692054, 215.59853039412158, 216.04033066132266, 216.48213092852373, 216.9239311957248, 217.36573146292585, 217.80753173012695, 218.249331997328, 218.69113226452905, 219.13293253173015, 219.5747327989312, 220.01653306613227, 220.45833333333334])
+              .range(['#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fee5d9ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fcbba1ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fc9272ff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#fb6a4aff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#ef3b2cff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#cb181dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff', '#99000dff']);
+    
+
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.x = d3.scale.linear()
+              .domain([0.0, 220.45833333333334])
+              .range([0, 400]);
+
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.legend = L.control({position: 'topright'});
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.legend.addTo(map_c94c251777d04aecbab1414e94b85b2a);
+
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.xAxis = d3.svg.axis()
+        .scale(color_map_37d7dbbeffa84506a7b8c5c5a9015197.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([0.0, 31.49404761904762, 62.98809523809524, 94.48214285714286, 125.97619047619048, 157.4702380952381, 188.96428571428572, 220.45833333333334]);
+
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.g = color_map_37d7dbbeffa84506a7b8c5c5a9015197.svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.g.selectAll("rect")
+        .data(color_map_37d7dbbeffa84506a7b8c5c5a9015197.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_37d7dbbeffa84506a7b8c5c5a9015197.x(color_map_37d7dbbeffa84506a7b8c5c5a9015197.color.domain()[i - 1]) : color_map_37d7dbbeffa84506a7b8c5c5a9015197.x.range()[0],
+            x1: i < color_map_37d7dbbeffa84506a7b8c5c5a9015197.color.domain().length ? color_map_37d7dbbeffa84506a7b8c5c5a9015197.x(color_map_37d7dbbeffa84506a7b8c5c5a9015197.color.domain()[i]) : color_map_37d7dbbeffa84506a7b8c5c5a9015197.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 10)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_37d7dbbeffa84506a7b8c5c5a9015197.g.call(color_map_37d7dbbeffa84506a7b8c5c5a9015197.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text('Number of available bikes per hexagon');
+    
+        function geo_json_2e2c9c2de066438a99c96cd683dd529e_styler(feature) {
+            switch(feature.properties.h3_hex_id) {
+                default:
+                    return {"color": "black", "fillOpacity": 0.01, "weight": 0.01};
+            }
+        }
+        function geo_json_2e2c9c2de066438a99c96cd683dd529e_highlighter(feature) {
+            switch(feature.properties.h3_hex_id) {
+                default:
+                    return {"color": "black", "fillOpacity": 0.5, "weight": 2};
+            }
+        }
+        function geo_json_2e2c9c2de066438a99c96cd683dd529e_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    geo_json_2e2c9c2de066438a99c96cd683dd529e.resetStyle(e.target);
+                },
+                mouseover: function(e) {
+                    e.target.setStyle(geo_json_2e2c9c2de066438a99c96cd683dd529e_highlighter(e.target.feature));
+                },
+                click: function(e) {
+                    map_c94c251777d04aecbab1414e94b85b2a.fitBounds(e.target.getBounds());
+                }
+            });
+        };
+        var geo_json_2e2c9c2de066438a99c96cd683dd529e = L.geoJson(null, {
+                onEachFeature: geo_json_2e2c9c2de066438a99c96cd683dd529e_onEachFeature,
+            
+                style: geo_json_2e2c9c2de066438a99c96cd683dd529e_styler,
+        }).addTo(map_c94c251777d04aecbab1414e94b85b2a);
+
+        function geo_json_2e2c9c2de066438a99c96cd683dd529e_add (data) {
+            geo_json_2e2c9c2de066438a99c96cd683dd529e.addData(data);
+        }
+            geo_json_2e2c9c2de066438a99c96cd683dd529e_add({"features": [{"geometry": {"coordinates": [[[7.080360919502379, 50.7505242168779], [7.068427929161177, 50.719799078575925], [7.105328984717779, 50.700652370734254], [7.154182057129541, 50.712223988967786], [7.166157846773933, 50.742951110073506], [7.12923777588655, 50.76210463805401], [7.080360919502379, 50.7505242168779]]], "type": "Polygon"}, "properties": {"available_bikes": 220.45833333333334, "h3_hex_id": "861fa1117ffffff"}, "type": "Feature"}, {"geometry": {"coordinates": [[[7.019608707704014, 50.70819470710995], [7.007714229672656, 50.677452458906224], [7.044596200977486, 50.65831254407347], [7.093391745612866, 50.66990809233633], [7.105328984717779, 50.700652370734254], [7.068427929161177, 50.719799078575925], [7.019608707704014, 50.70819470710995]]], "type": "Polygon"}, "properties": {"available_bikes": 9.375, "h3_hex_id": "861fa11a7ffffff"}, "type": "Feature"}, {"geometry": {"coordinates": [[[7.105328984717779, 50.700652370734254], [7.093391745612866, 50.66990809233633], [7.130264835782043, 50.650733440334186], [7.179094126395174, 50.662296253440665], [7.191074097431419, 50.69304251577718], [7.154182057129541, 50.712223988967786], [7.105328984717779, 50.700652370734254]]], "type": "Polygon"}, "properties": {"available_bikes": 55.5, "h3_hex_id": "861fa11afffffff"}, "type": "Feature"}], "type": "FeatureCollection"});
+        
+    
+    geo_json_2e2c9c2de066438a99c96cd683dd529e.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = ["h3_hex_id", "available_bikes"];
+    let aliases = ["Hexagon ID:", "Available bikes:"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{"className": "foliumtooltip", "sticky": true});
+                     
+    
+            var marker_99c96e7287214e8e920aade897b22e91 = L.marker(
+                [50.72745325515178, 7.085836360350935],
+                {}
+            ).addTo(map_c94c251777d04aecbab1414e94b85b2a);
+        
+    
+            var icon_b0d819fb04184122b3bb46c86ded3f50 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_99c96e7287214e8e920aade897b22e91.setIcon(icon_b0d819fb04184122b3bb46c86ded3f50);
+        
+    
+        var popup_b84c0d589b4b4c288986367e1ae5ffd5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5a498f7d8b764d069ed0ff31888d2e9b = $(`<div id="html_5a498f7d8b764d069ed0ff31888d2e9b" style="width: 100.0%; height: 100.0%;"><b>University of Bonn</b></div>`)[0];
+            popup_b84c0d589b4b4c288986367e1ae5ffd5.setContent(html_5a498f7d8b764d069ed0ff31888d2e9b);
+        
+
+        marker_99c96e7287214e8e920aade897b22e91.bindPopup(popup_b84c0d589b4b4c288986367e1ae5ffd5)
+        ;
+
+        
+    
+    
+            var marker_0fea441d94b043b7835f1a29afd2483a = L.marker(
+                [50.73236, 7.09701],
+                {}
+            ).addTo(map_c94c251777d04aecbab1414e94b85b2a);
+        
+    
+            var icon_64d8b238bd054896adc89daf45f4093d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_0fea441d94b043b7835f1a29afd2483a.setIcon(icon_64d8b238bd054896adc89daf45f4093d);
+        
+    
+        var popup_7e9a4ea3cc63477387477a38525e5dc5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_82402642d84341a3829682886d416c77 = $(`<div id="html_82402642d84341a3829682886d416c77" style="width: 100.0%; height: 100.0%;"><b>Bonn central station</b></div>`)[0];
+            popup_7e9a4ea3cc63477387477a38525e5dc5.setContent(html_82402642d84341a3829682886d416c77);
+        
+
+        marker_0fea441d94b043b7835f1a29afd2483a.bindPopup(popup_7e9a4ea3cc63477387477a38525e5dc5)
+        ;
+
+        
+    
+</script>

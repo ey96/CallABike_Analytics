@@ -1,6 +1,0 @@
-STATIONS_ID Stationsidentifikationsnummer
-MESS_DATUM Zeitstempel yyyymmddhh
-QN_9 Qualitätsniveau der nachfolgenden Spalten code siehe Absatz "Qualitätsinformation"
-TT_TU Lufttemperatur in 2m Höhe ° C
-RF_TU relative Feuchte %
-eor Ende data record

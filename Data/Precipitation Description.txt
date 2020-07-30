@@ -1,9 +1,0 @@
-STATIONS_ID Stationsidentifikationsnummer
-MESS_DATUM Zeitstempel yyyymmddhh
-QN_8 Qualitätsniveau der nachfolgenden Spalten code siehe Absatz "Qualitätsinformation"
-R1 stündliche Niederschlagshöhe mm 
-RS_IND Index
-0 kein Niederschlag
-1 Niederschlag gefallen
-WRTR WR-Niederschlagsform WR -Codierung
-eor Ende data record
